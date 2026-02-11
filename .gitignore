@@ -1,0 +1,8 @@
+# Ignore unnecessary files
+Instagram_files/
+*.log
+.DS_Store
+node_modules/
+.env
+.vscode/
+.idea/
