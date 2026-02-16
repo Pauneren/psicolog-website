@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pauneren.github.io/psicolog-website/sitemap.xml
+
+# Block unnecessary files
+Disallow: /Instagram_files/
+Disallow: /*.git$
+Disallow: /*.env$
