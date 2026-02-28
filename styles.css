@@ -596,24 +596,42 @@ section {
 }
 
 .paragraph-with-icon {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
     background: var(--bg-white);
+    padding: 2rem;
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-soft);
     transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.paragraph-with-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition-smooth);
+}
+
+.paragraph-with-icon:hover::before {
+    transform: scaleX(1);
 }
 
 .paragraph-with-icon:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
 }
 
 .paragraph-icon {
-    flex-shrink: 0;
     width: 80px;
     height: 80px;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -625,6 +643,7 @@ section {
     font-size: 2rem;
     box-shadow: var(--shadow-soft);
     transition: var(--transition-bounce);
+    margin: 0 auto 1.5rem;
 }
 
 .paragraph-with-icon:hover .paragraph-icon {
@@ -632,23 +651,28 @@ section {
 }
 
 .paragraph-with-icon p {
-    flex: 1;
+    color: var(--text-light);
+    line-height: 1.6;
     margin: 0;
-    text-align: left;
-    font-style: normal;
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
-    background-clip: unset;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
+    text-align: center;
+}
+
+/* Responsive alignment for Enfoque Clínico cards */
+@media (max-width: 1023px) {
+    .paragraph-with-icon {
+        text-align: center;
+    }
+    
+    .paragraph-with-icon p {
+        text-align: center;
+        margin: 0;
+    }
 }
 
 /* Word Process Section */
 .word-process {
     background: var(--bg-light);
-    padding: 5rem 0;
+    padding: 2rem 0;
 }
 
 .word-process-content {
@@ -746,6 +770,10 @@ section {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
+}
+
+.word-conclusion {
+    padding-top: 1rem;
 }
 
 /* Contact Section */
