@@ -1,72 +1,30 @@
-// Mobile Navigation Toggle - Simplified Test
-document.addEventListener('DOMContentLoaded', function () {
+// Mobile Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    console.log('=== DEBUGGING HAMBURGER MENU ===');
-    console.log('Hamburger element:', hamburger);
-    console.log('Nav menu element:', navMenu);
-    console.log('Nav links:', navLinks.length);
-
-    if (!hamburger) {
-        console.error('Hamburger not found!');
-        return;
-    }
-
-    if (!navMenu) {
-        console.error('Nav menu not found!');
-        return;
-    }
-
-    // Simple toggle test
-    hamburger.addEventListener('click', function (e) {
-        e.preventDefault();
-        console.log('=== HAMBURGER CLICKED ===');
-
-        // Toggle classes
+    // Toggle mobile menu
+    hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-
-        // Check state after toggle
-        setTimeout(() => {
-            console.log('Menu active class:', navMenu.classList.contains('active'));
-            console.log('Menu display style:', window.getComputedStyle(navMenu).display);
-            console.log('Menu visibility:', window.getComputedStyle(navMenu).visibility);
-
-            // Check each link
-            navLinks.forEach((link, index) => {
-                const style = window.getComputedStyle(link);
-                console.log(`Link ${index}:`, {
-                    display: style.display,
-                    visibility: style.visibility,
-                    opacity: style.opacity,
-                    color: style.color
-                });
-            });
-        }, 100);
     });
 
-    // Test link clicks
-    navLinks.forEach((link, index) => {
-        link.addEventListener('click', function (e) {
-            console.log(`=== LINK ${index} CLICKED ===`);
-            e.preventDefault();
-
-            // Close menu
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
-            console.log('Menu closed after link click');
         });
     });
 
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-
+            
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80; // Account for fixed header
                 window.scrollTo({
@@ -79,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Navbar scroll effect
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
@@ -96,7 +54,7 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function (entries) {
+const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -106,9 +64,9 @@ const observer = new IntersectionObserver(function (entries) {
 }, observerOptions);
 
 // Observe elements for animation
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const animatedElements = document.querySelectorAll('.service-card, .step, .contact-item');
-
+    
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -118,30 +76,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Form submission handling
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('consultationForm');
-
+    
     if (form) {
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-
+            
             // Get form data
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
-
+            
             // Simple validation
             if (!data.name || !data.email || !data.service) {
                 showNotification('Please fill in all required fields.', 'error');
                 return;
             }
-
+            
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(data.email)) {
                 showNotification('Please enter a valid email address.', 'error');
                 return;
             }
-
+            
             // Simulate form submission
             showNotification('Thank you for your inquiry! I will contact you within 24 hours.', 'success');
             form.reset();
@@ -155,7 +113,7 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
-
+    
     // Style the notification
     notification.style.cssText = `
         position: fixed;
@@ -172,15 +130,15 @@ function showNotification(message, type = 'info') {
         transition: transform 0.3s ease;
         font-weight: 500;
     `;
-
+    
     // Add to page
     document.body.appendChild(notification);
-
+    
     // Animate in
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
-
+    
     // Remove after 5 seconds
     setTimeout(() => {
         notification.style.transform = 'translateX(400px)';
@@ -193,11 +151,11 @@ function showNotification(message, type = 'info') {
 }
 
 // Parallax effect for hero section
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const heroContent = document.querySelector('.hero-content');
-
+    
     if (hero && heroContent) {
         const rate = scrolled * -0.5;
         heroContent.style.transform = `translateY(${rate}px)`;
@@ -205,13 +163,13 @@ window.addEventListener('scroll', function () {
 });
 
 // Typing effect for hero title
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         const text = heroTitle.textContent;
         heroTitle.textContent = '';
         heroTitle.style.borderRight = '3px solid #FFFFFF';
-
+        
         let index = 0;
         function typeWriter() {
             if (index < text.length) {
@@ -225,42 +183,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 1000);
             }
         }
-
+        
         // Start typing effect after page load
         setTimeout(typeWriter, 500);
     }
 });
 
 // Service cards hover effect with 3D tilt
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const serviceCards = document.querySelectorAll('.service-card');
-
+    
     serviceCards.forEach(card => {
-        card.addEventListener('mousemove', function (e) {
+        card.addEventListener('mousemove', function(e) {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-
+            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-
+            
             const rotateX = (y - centerY) / 10;
             const rotateY = (centerX - x) / 10;
-
+            
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
         });
-
-        card.addEventListener('mouseleave', function () {
+        
+        card.addEventListener('mouseleave', function() {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
         });
     });
 });
 
 // Smooth reveal animation for skills/credentials
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const credentialItems = document.querySelectorAll('.credential-item');
-
-    const credentialObserver = new IntersectionObserver(function (entries) {
+    
+    const credentialObserver = new IntersectionObserver(function(entries) {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
                 setTimeout(() => {
@@ -273,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     });
-
+    
     credentialItems.forEach(item => {
         item.style.opacity = '0';
         item.style.transform = 'translateX(-30px)';
@@ -283,11 +241,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Progress circle animation
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const progressCircle = document.querySelector('.progress-circle');
-
+    
     if (progressCircle) {
-        const progressObserver = new IntersectionObserver(function (entries) {
+        const progressObserver = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.animation = 'pulse 2s infinite, rotateIn 1s ease-out';
@@ -296,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, {
             threshold: 0.5
         });
-
+        
         progressObserver.observe(progressCircle);
     }
 });
@@ -318,37 +276,37 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Floating animation for hero card
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const floatingCard = document.querySelector('.floating-card');
-
+    
     if (floatingCard) {
-        floatingCard.addEventListener('mouseenter', function () {
+        floatingCard.addEventListener('mouseenter', function() {
             this.style.animation = 'float 3s ease-in-out infinite, bounce 0.5s ease';
         });
-
-        floatingCard.addEventListener('mouseleave', function () {
+        
+        floatingCard.addEventListener('mouseleave', function() {
             this.style.animation = 'float 3s ease-in-out infinite';
         });
     }
 });
 
 // Form input focus effects
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const formInputs = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
-
+    
     formInputs.forEach(input => {
-        input.addEventListener('focus', function () {
+        input.addEventListener('focus', function() {
             this.parentElement.style.transform = 'scale(1.02)';
         });
-
-        input.addEventListener('blur', function () {
+        
+        input.addEventListener('blur', function() {
             this.parentElement.style.transform = 'scale(1)';
         });
     });
 });
 
 // Scroll to top button
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // Create scroll to top button
     const scrollToTopBtn = document.createElement('button');
     scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
@@ -372,33 +330,33 @@ document.addEventListener('DOMContentLoaded', function () {
         transition: all 0.3s ease;
         z-index: 1000;
     `;
-
+    
     document.body.appendChild(scrollToTopBtn);
-
+    
     // Show/hide button based on scroll position
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function() {
         if (window.pageYOffset > 300) {
             scrollToTopBtn.style.display = 'flex';
         } else {
             scrollToTopBtn.style.display = 'none';
         }
     });
-
+    
     // Scroll to top when clicked
-    scrollToTopBtn.addEventListener('click', function () {
+    scrollToTopBtn.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-
+    
     // Hover effect
-    scrollToTopBtn.addEventListener('mouseenter', function () {
+    scrollToTopBtn.addEventListener('mouseenter', function() {
         this.style.transform = 'scale(1.1)';
         this.style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.3)';
     });
-
-    scrollToTopBtn.addEventListener('mouseleave', function () {
+    
+    scrollToTopBtn.addEventListener('mouseleave', function() {
         this.style.transform = 'scale(1)';
         this.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
     });
@@ -418,6 +376,6 @@ function debounce(func, wait) {
 }
 
 // Apply debounce to scroll events
-window.addEventListener('scroll', debounce(function () {
+window.addEventListener('scroll', debounce(function() {
     // Your scroll-related functions here
 }, 10));
