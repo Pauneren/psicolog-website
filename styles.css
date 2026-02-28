@@ -776,9 +776,67 @@ section {
     padding-top: 1rem;
 }
 
+.icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.icon-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    transition: var(--transition-smooth);
+}
+
+.icon-list li:hover {
+    transform: translateX(10px);
+}
+
+.icon-list i {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    flex-shrink: 0;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-bounce);
+}
+
+.icon-list li:hover i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.icon-list span {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.point-card h3 {
+    color: #B062B0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
 /* Contact Section */
 .contact {
     background: var(--bg-light);
+}
+
+/* Ethical Framework Section */
+.ethical-framework {
+    background: var(--bg-light);
+    padding: 2rem 0;
 }
 
 .contact-content {
