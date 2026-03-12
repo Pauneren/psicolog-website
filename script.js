@@ -75,81 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Form submission handling with mailto
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('consultationForm');
-
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-
-            // Simple validation
-            if (!data.name || !data.email || !data.service) {
-                showNotification('Por favor completa todos los campos requeridos.', 'error');
-                return;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                showNotification('Por favor ingresa un correo electrónico válido.', 'error');
-                return;
-            }
-
-            // Create email content
-            const subject = encodeURIComponent('Solicitud de Consulta - ' + data.name);
-            const body = encodeURIComponent(
-                `Nombre: ${data.name}\n` +
-                `Email: ${data.email}\n` +
-                `Teléfono: ${data.phone || 'No proporcionado'}\n` +
-                `Servicio: ${getServiceName(data.service)}\n\n` +
-                `Mensaje:\n${data.message || 'No proporcionó mensaje adicional'}`
-            );
-
-            // Open email client
-            const mailtoLink = `mailto:Travesiainternapsicologia@gmail.com?subject=${subject}&body=${body}`;
-
-            // Try to open email client
-            try {
-                window.location.href = mailtoLink;
-
-                // Show notification
-                showNotification('Abriendo tu cliente de correo...', 'success');
-
-                // Reset form after a delay
-                setTimeout(() => {
-                    form.reset();
-                }, 1000);
-
-            } catch (error) {
-                console.error('Error opening email client:', error);
-                showNotification('Por favor, envía un email directamente a: Travesiainternapsicologia@gmail.com', 'error');
-
-                // Fallback: copy email to clipboard
-                navigator.clipboard.writeText('Travesiainternapsicologia@gmail.com').then(() => {
-                    showNotification('Email copiado al portapapeles. Pégalo en tu cliente de correo.', 'info');
-                }).catch(() => {
-                    showNotification('Email: Travesiainternapsicologia@gmail.com', 'info');
-                });
-            }
-        });
-    }
-});
-
-// Helper function to get service name
-function getServiceName(serviceValue) {
-    const services = {
-        'individual': 'Terapia Individual',
-        'couples': 'Asesoramiento de Pareja',
-        'group': 'Terapia de Grupo',
-        'consultation': 'Consulta Inicial'
-    };
-    return services[serviceValue] || serviceValue;
-}
+// Simple form handling - no complex JavaScript needed
+// The HTML form uses mailto action which opens user's email client
 
 // Notification system
 function showNotification(message, type = 'info') {
