@@ -1161,3 +1161,119 @@ section {
         font-size: 5rem;
     }
 }
+
+/* Contact Section with Glassmorphism */
+.contact-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 2.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+.glass-card h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.contact-section .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-section label {
+    color: white;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.contact-section textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-section .btn-primary {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #B062B0 0%, #8B5CF6 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-section .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(176, 98, 176, 0.4);
+}
+
+.contact-section .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Responsive for Contact Section */
+@media (max-width: 768px) {
+    .glass-card {
+        margin: 0 1rem;
+        padding: 2rem;
+    }
+    
+    .glass-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-section {
+        padding: 60px 0;
+    }
+}
