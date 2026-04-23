@@ -21,16 +21,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+            const href = this.getAttribute('href');
 
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed header
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            // Only prevent default for internal navigation links (starting with #)
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed header
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -77,6 +81,67 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Simple form handling - no complex JavaScript needed
 // The HTML form uses mailto action which opens user's email client
+
+// Enhanced form handling - opens user's email with pre-filled content
+document.addEventListener('DOMContentLoaded', function () {
+    // Handle FormSubmit form
+    const contactForm = document.querySelector('#contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Submit to FormSubmit using fetch
+            fetch('https://formsubmit.co/ajax/Travesiainternapsicologia@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(result => {
+                    // Show success message
+                    showNotification('¡Mensaje enviado con éxito! Te responderemos pronto.', 'success');
+                    this.reset();
+                })
+                .catch(error => {
+                    // Show error message
+                    showNotification('Error al enviar el mensaje. Por favor intenta nuevamente.', 'error');
+                });
+        });
+    }
+
+    // Contact forms (legacy support)
+    const contactForms = document.querySelectorAll('form[action^="mailto:"]');
+
+    contactForms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Create email subject and body
+            let subject = 'Consulta desde Web - ' + (data.Nombre || 'Nuevo Cliente');
+            let body = 'Hola, me gustaría solicitar una consulta.\n\n';
+            body += 'Nombre: ' + (data.Nombre || '') + '\n';
+            body += 'Email: ' + (data.Email || '') + '\n';
+            body += 'Mensaje: ' + (data.Mensaje || '');
+
+            // Create mailto link with pre-filled content
+            const mailtoLink = `mailto:Travesiainternapsicologia@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Try to open email client
+            window.location.href = mailtoLink;
+        });
+    });
+});
 
 // Notification system
 function showNotification(message, type = 'info') {
