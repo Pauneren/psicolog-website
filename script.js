@@ -415,3 +415,33 @@ function debounce(func, wait) {
 window.addEventListener('scroll', debounce(function () {
     // Your scroll-related functions here
 }, 10));
+
+// Cookie Popup functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const cookiePopup = document.getElementById('cookie-popup');
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
+
+    // Check if user has already accepted cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+        // Show popup after a short delay
+        setTimeout(() => {
+            cookiePopup.classList.add('show');
+        }, 1000);
+    } else {
+        // Hide popup if cookies were already accepted
+        cookiePopup.style.display = 'none';
+    }
+
+    // Handle accept cookies button click
+    if (acceptCookiesBtn) {
+        acceptCookiesBtn.addEventListener('click', function () {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookiePopup.classList.remove('show');
+
+            // Hide popup after animation
+            setTimeout(() => {
+                cookiePopup.style.display = 'none';
+            }, 300);
+        });
+    }
+});
