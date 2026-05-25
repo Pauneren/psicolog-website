@@ -542,14 +542,7 @@
                         <p>Lunes - Viernes: 9:00 AM - 7:00 PM<br>Sábado: 10:00 AM - 4:00 PM</p>
                     </div>
                     <div class="contact-form">
-                        <!-- TODO: Después de probar el formulario, cambiar el email de envío al correo oficial de la Lic. Julieta Banco (Travesiainternapsicologia@gmail.com). -->
-                        <form action="https://formsubmit.co/paulita.glam@gmail.com" method="POST" id="contactForm">
-
-                            <input type="hidden" name="_subject" value="Nueva consulta desde la web">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_next"
-                                value="https://pauneren.github.io/psicolog-website/gracias.html">
+                        <form action="https://formspree.io/f/meedrebw" method="POST" id="contactForm">
 
                             <p class="form-clinical-warning" role="note">
                                 Por favor, no incluyas información clínica sensible en este formulario. Este medio no
@@ -558,29 +551,29 @@
 
                             <div class="form-group">
                                 <label for="contact-nombre" class="visually-hidden">Tu nombre</label>
-                                <input type="text" id="contact-nombre" name="Nombre" placeholder="Tu nombre" required>
+                                <input type="text" id="contact-nombre" name="name" placeholder="Tu nombre" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="contact-email" class="visually-hidden">Tu email</label>
-                                <input type="email" id="contact-email" name="Email" placeholder="Tu email" required>
+                                <input type="email" id="contact-email" name="email" placeholder="Tu email" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="contact-telefono" class="visually-hidden">Tu teléfono</label>
-                                <input type="tel" id="contact-telefono" name="Telefono" placeholder="Tu teléfono">
+                                <input type="tel" id="contact-telefono" name="phone" placeholder="Tu teléfono">
                             </div>
 
                             <div class="form-group">
                                 <label for="contact-mensaje" class="visually-hidden">Tu mensaje</label>
-                                <textarea id="contact-mensaje" name="Mensaje" placeholder="Escribe tu mensaje..."
+                                <textarea id="contact-mensaje" name="message" placeholder="Escribe tu mensaje..."
                                     rows="5" required></textarea>
                             </div>
 
                             <div class="form-group form-consent">
                                 <label class="form-consent-label">
-                                    <input type="checkbox" id="contact-privacy-consent" name="Consentimiento privacidad"
-                                        value="Aceptado" required>
+                                    <input type="checkbox" id="contact-privacy-consent" name="privacy_consent"
+                                        value="Acepto la política de privacidad" required>
                                     <span>He leído y acepto la <a href="politica-de-privacidad.html"
                                             target="_blank" rel="noopener noreferrer">Política de Privacidad</a>.</span>
                                 </label>

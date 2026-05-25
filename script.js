@@ -79,9 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Contact form: native POST to FormSubmit (see index.html action).
-// TODO: Después de probar el formulario, cambiar el email de envío en index.html al correo oficial de la Lic. Julieta Banco.
-// Do not intercept #contactForm submit here; gracias.html is used via the _next field.
+// Contact form: native POST to Formspree (see index.html action).
+// Do not intercept #contactForm submit here.
 
 document.addEventListener('DOMContentLoaded', function () {
     const professionalEmail = 'Travesiainternapsicologia@gmail.com';

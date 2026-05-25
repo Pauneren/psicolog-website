@@ -4,7 +4,14 @@ Sitio estático profesional — Lic. Julieta Banco.
 
 **URL pública:** https://pauneren.github.io/psicolog-website/
 
+## Formulario de contacto
+
+El formulario usa **Formspree** con integración **Basic HTML POST** (sin React, Ajax ni backend).
+
+- **Endpoint:** https://formspree.io/f/meedrebw
+- **Destinatario:** configurado en el panel de Formspree.
+- El sitio advierte a los usuarios que no envíen información clínica sensible por este medio.
+
 ## Phase B / TODO (pendiente)
 
-- FormSubmit test may fail if formsubmit.co is temporarily unavailable. If this continues, consider replacing FormSubmit with a more reliable form service before client delivery.
 - (Ver también comentarios `TODO` en `index.html`, `script.js` y páginas legales.)
