@@ -84,6 +84,41 @@ document.addEventListener('DOMContentLoaded', function () {
 // Do not intercept #contactForm submit here; gracias.html is used via the _next field.
 
 document.addEventListener('DOMContentLoaded', function () {
+    const professionalEmail = 'Travesiainternapsicologia@gmail.com';
+    const copyEmailBtn = document.getElementById('copy-professional-email');
+
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const copyText = function (text) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    return navigator.clipboard.writeText(text);
+                }
+
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'fixed';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                const copied = document.execCommand('copy');
+                document.body.removeChild(textarea);
+                return copied ? Promise.resolve() : Promise.reject();
+            };
+
+            copyText(professionalEmail)
+                .then(function () {
+                    showNotification('Email copiado', 'success');
+                })
+                .catch(function () {
+                    showNotification('No se pudo copiar el email', 'error');
+                });
+        });
+    }
+
     // Contact forms (legacy mailto support only)
     const contactForms = document.querySelectorAll('form[action^="mailto:"]');
 

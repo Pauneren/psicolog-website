@@ -820,6 +820,54 @@ section {
     margin-bottom: 0.5rem;
 }
 
+.contact-email-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+}
+
+.contact-email-link {
+    position: relative;
+    z-index: 2;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    word-break: break-all;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.contact-email-link:hover,
+.contact-email-link:focus-visible {
+    color: #9A559A;
+}
+
+.copy-email-btn {
+    position: relative;
+    z-index: 2;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    border: 1px solid rgba(176, 98, 176, 0.25);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    pointer-events: auto;
+}
+
+.copy-email-btn:hover,
+.copy-email-btn:focus-visible {
+    background: var(--bg-white);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    outline: none;
+}
+
 .contact-form {
     background: var(--bg-white);
     padding: 2rem;
@@ -1013,6 +1061,12 @@ section {
     align-items: center;
     justify-content: center;
     transition: var(--transition-smooth);
+}
+
+.social-links a {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
 }
 
 .social-links a:hover {
