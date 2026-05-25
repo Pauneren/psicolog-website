@@ -19,6 +19,7 @@
     <meta name="geo.position" content="-32.8903;-68.8454">
 
     <!-- Professional Credentials -->
+    <!-- TODO: Confirmar con la clienta el número de matrícula profesional real antes de publicar. -->
     <meta name="credentials" content="Matrícula Profesional N°12345, Universidad de Mendoza">
     <meta name="specialization" content="Psicología Clínica, Psicoterapia Cognitivo-Conductual">
     <meta name="experience" content="15+ años de experiencia clínica">
@@ -33,6 +34,7 @@
     <!-- Local Business & Contact -->
     <meta name="business-hours" content="Lunes-Viernes 9:00-19:00, Sábado 10:00-16:00">
     <meta name="payment-methods" content="Efectivo, Transferencia, Tarjeta de crédito">
+    <!-- TODO: Confirmar teléfono o WhatsApp oficial de contacto (reemplazar valor provisional en meta y sección contacto). -->
     <meta name="emergency-contact" content="+54-261-555-0123">
     <meta name="appointment-url" content="https://pauneren.github.io/psicolog-website/#contact">
 
@@ -81,12 +83,14 @@
     <meta name="twitter:creator" content="@julietabanco">
 
     <!-- Canonical URL -->
+    <!-- TODO: Si la clienta adquiere un dominio propio, actualizar canonical, Open Graph, sitemap y enlaces absolutos. -->
     <link rel="canonical" href="https://pauneren.github.io/psicolog-website/">
 
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="https://pauneren.github.io/psicolog-website/sitemap.xml">
 
     <!-- Structured Data -->
+    <!-- TODO: Confirmar teléfono oficial para datos estructurados (campo telephone). -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -181,6 +185,9 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
     <!-- Cookie Popup -->
     <div id="cookie-popup" class="cookie-popup">
         <div class="cookie-content">
@@ -191,13 +198,11 @@
 
             <div class="cookie-buttons">
                 <button id="accept-cookies" class="cookie-btn accept">Aceptar</button>
-                <a href="politica-cookies.html" class="cookie-link">Ver política</a>
+                <a href="politica-de-cookies.html" class="cookie-link">Ver política</a>
             </div>
         </div>
     </div>
-</head>
 
-<body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -242,6 +247,7 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
+                <!-- TODO: Confirmar con la clienta el título y subtítulo definitivos del hero. -->
                 <h1 class="hero-title fade-in-up">Aca va el titulo</h1>
                 <p class="hero-subtitle fade-in-up-delay">Aca todavia no se sabe </p>
                 <p class="hero-description fade-in-up-delay">Atención a adolescentes, adultos y parejas. Modalidad
@@ -505,6 +511,7 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Ubicación</h4>
+                            <!-- TODO: Confirmar con la clienta dirección de consultorio o zona de atención (presencial/online). -->
                             <p>123 Calle Wellness<br>Suite 100<br>Mendoza, Mendoza<br>5500</p>
                         </div>
                     </div>
@@ -512,6 +519,7 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Teléfono</h4>
+                            <!-- TODO: Confirmar teléfono o WhatsApp oficial. -->
                             <p>+54 9 2615 98 5663</p>
                         </div>
                     </div>
@@ -519,8 +527,8 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Correo</h4>
-                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Travesiainternapsicologia@gmail.com&su=Consulta%20desde%20la%20web&body=Hola,%20me%20gustaría%20hacer%20una%20consulta"
-                                target="_blank" rel="noopener noreferrer">
+                            <a href="mailto:Travesiainternapsicologia@gmail.com"
+                                aria-label="Enviar correo a Travesiainternapsicologia@gmail.com">
                                 Travesiainternapsicologia@gmail.com
                             </a>
                         </div>
@@ -531,32 +539,48 @@
                         <p>Lunes - Viernes: 9:00 AM - 7:00 PM<br>Sábado: 10:00 AM - 4:00 PM</p>
                     </div>
                     <div class="contact-form">
-                        <form action="https://formsubmit.co/Travesiainternapsicologia@gmail.com" method="POST"
-                            id="contactForm">
+                        <!-- TODO: Después de probar el formulario, cambiar el email de envío al correo oficial de la Lic. Julieta Banco (Travesiainternapsicologia@gmail.com). -->
+                        <form action="https://formsubmit.co/paulita.glam@gmail.com" method="POST" id="contactForm">
 
                             <input type="hidden" name="_subject" value="Nueva consulta desde la web">
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
-
-                            <!-- This MUST be inside the form -->
                             <input type="hidden" name="_next"
                                 value="https://pauneren.github.io/psicolog-website/gracias.html">
 
+                            <p class="form-clinical-warning" role="note">
+                                Por favor, no incluyas información clínica sensible en este formulario. Este medio no
+                                reemplaza una consulta profesional ni debe utilizarse para emergencias.
+                            </p>
+
                             <div class="form-group">
-                                <input type="text" name="Nombre" placeholder="Tu nombre" required>
+                                <label for="contact-nombre" class="visually-hidden">Tu nombre</label>
+                                <input type="text" id="contact-nombre" name="Nombre" placeholder="Tu nombre" required>
                             </div>
 
                             <div class="form-group">
-                                <input type="email" name="Email" placeholder="Tu email" required>
+                                <label for="contact-email" class="visually-hidden">Tu email</label>
+                                <input type="email" id="contact-email" name="Email" placeholder="Tu email" required>
                             </div>
 
                             <div class="form-group">
-                                <input type="tel" name="Telefono" placeholder="Tu teléfono">
+                                <label for="contact-telefono" class="visually-hidden">Tu teléfono</label>
+                                <input type="tel" id="contact-telefono" name="Telefono" placeholder="Tu teléfono">
                             </div>
 
                             <div class="form-group">
-                                <textarea name="Mensaje" placeholder="Escribe tu mensaje..." rows="5"
-                                    required></textarea>
+                                <label for="contact-mensaje" class="visually-hidden">Tu mensaje</label>
+                                <textarea id="contact-mensaje" name="Mensaje" placeholder="Escribe tu mensaje..."
+                                    rows="5" required></textarea>
+                            </div>
+
+                            <div class="form-group form-consent">
+                                <label class="form-consent-label">
+                                    <input type="checkbox" id="contact-privacy-consent" name="Consentimiento privacidad"
+                                        value="Aceptado" required>
+                                    <span>He leído y acepto la <a href="politica-de-privacidad.html"
+                                            target="_blank" rel="noopener noreferrer">Política de Privacidad</a>.</span>
+                                </label>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-full">
@@ -567,8 +591,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </section>
 
@@ -581,6 +603,7 @@
                     <h3>Julieta Banco</h3>
                     <p>Cuidado compasivo para tu viaje de bienestar mental.</p>
                     <div class="social-links">
+                        <!-- TODO: Reemplazar # por las URLs reales de redes sociales cuando la clienta las confirme. -->
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="#" aria-label="Psychology Today"><i class="fas fa-user-md"></i></a>
                         <a href="mailto:Travesiainternapsicologia@gmail.com" aria-label="Correo"><i
@@ -615,6 +638,7 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
+    <!-- TODO: Confirmar número de WhatsApp oficial con la clienta. -->
     <a href="https://wa.me/5492615985663?text=Hola%20Julieta,%20quiero%20agendar%20una%20consulta"
         class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>

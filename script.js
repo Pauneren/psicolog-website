@@ -79,44 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Simple form handling - no complex JavaScript needed
-// The HTML form uses mailto action which opens user's email client
+// Contact form: native POST to FormSubmit (see index.html action).
+// TODO: Después de probar el formulario, cambiar el email de envío en index.html al correo oficial de la Lic. Julieta Banco.
+// Do not intercept #contactForm submit here; gracias.html is used via the _next field.
 
-// Enhanced form handling - opens user's email with pre-filled content
 document.addEventListener('DOMContentLoaded', function () {
-    // Handle FormSubmit form
-    const contactForm = document.querySelector('#contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            // Submit to FormSubmit using fetch
-            fetch('https://formsubmit.co/ajax/Travesiainternapsicologia@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(result => {
-                    // Show success message
-                    showNotification('¡Mensaje enviado con éxito! Te responderemos pronto.', 'success');
-                    this.reset();
-                })
-                .catch(error => {
-                    // Show error message
-                    showNotification('Error al enviar el mensaje. Por favor intenta nuevamente.', 'error');
-                });
-        });
-    }
-
-    // Contact forms (legacy support)
+    // Contact forms (legacy mailto support only)
     const contactForms = document.querySelectorAll('form[action^="mailto:"]');
 
     contactForms.forEach(form => {
