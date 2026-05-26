@@ -2,7 +2,8 @@
 
 Sitio estático profesional — Lic. Julieta Banco.
 
-**URL pública:** https://pauneren.github.io/psicolog-website/
+**URL pública (principal):** https://travesiainternapsicologia.netlify.app/
+**Despliegue principal:** Netlify.
 
 ## Formulario de contacto
 
