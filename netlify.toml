@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "https://travesiainternapsicologia.netlify.app/*"
+  to = "https://travesiainternapsicologia.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://travesiainternapsicologia.netlify.app/*"
+  to = "https://travesiainternapsicologia.com/:splat"
+  status = 301
+  force = true
