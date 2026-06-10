@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://travesiainternapsicologia.netlify.app/sitemap.xml
+Sitemap: https://travesiainternapsicologia.com/sitemap.xml
 
 # Block unnecessary files
 Disallow: /Instagram_files/

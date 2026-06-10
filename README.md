@@ -2,8 +2,8 @@
 
 Sitio estático profesional — Lic. Julieta Banco.
 
-**URL pública (principal):** https://travesiainternapsicologia.netlify.app/
-**Despliegue principal:** Netlify.
+**URL pública (principal):** https://travesiainternapsicologia.com/
+**Despliegue principal:** Netlify (dominio personalizado configurado).
 
 ## Formulario de contacto
 
