@@ -92,8 +92,7 @@
                     "areaServed": [
                         { "@type": "City", "name": "Godoy Cruz" },
                         { "@type": "AdministrativeArea", "name": "Mendoza" },
-                        { "@type": "Country", "name": "Argentina" },
-                        { "@type": "Place", "name": "Atención psicológica online en español" }
+                        { "@type": "Country", "name": "Argentina" }
                     ],
                     "availableLanguage": ["es"],
                     "sameAs": [
@@ -104,14 +103,92 @@
                         "@type": "OfferCatalog",
                         "name": "Áreas de trabajo y modalidades de atención",
                         "itemListElement": [
-                            { "@type": "Offer", "itemOffered": "Psicología online", "description": "Atención psicológica online por videollamada para hispanohablantes" },
-                            { "@type": "Offer", "itemOffered": "Terapia online", "description": "Psicoterapia online desde un enfoque psicoanalítico" },
-                            { "@type": "Offer", "itemOffered": "Trastornos de la conducta alimentaria", "description": "Tratamiento especializado desde un enfoque integral" },
-                            { "@type": "Offer", "itemOffered": "Padecimientos obsesivos y ansiedad", "description": "Intervención clínica para TOC y manifestaciones de ansiedad" },
-                            { "@type": "Offer", "itemOffered": "Crisis vitales", "description": "Acompañamiento en transiciones y momentos de crisis" },
-                            { "@type": "Offer", "itemOffered": "Conflictos vinculares", "description": "Trabajo sobre dificultades en relaciones interpersonales" },
-                            { "@type": "Offer", "itemOffered": "Atención a adolescentes, adultos y parejas", "description": "Modalidad presencial y online" },
-                            { "@type": "Offer", "itemOffered": "Enfoque clínico psicoanalítico", "description": "Análisis del síntoma y proceso terapéutico" }
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Psicología online",
+                                    "description": "Atención psicológica online por videollamada para hispanohablantes. La habilitación profesional se verifica según la jurisdicción del paciente.",
+                                    "provider": { "@id": "https://travesiainternapsicologia.com/#business" },
+                                    "audience": {
+                                        "@type": "Audience",
+                                        "audienceType": "Hispanohablantes"
+                                    },
+                                    "availableChannel": {
+                                        "@type": "ServiceChannel",
+                                        "name": "Consulta psicológica online",
+                                        "serviceUrl": "https://travesiainternapsicologia.com/",
+                                        "availableLanguage": "es"
+                                    }
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Terapia online",
+                                    "description": "Psicoterapia online desde un enfoque psicoanalítico",
+                                    "provider": { "@id": "https://travesiainternapsicologia.com/#business" },
+                                    "audience": {
+                                        "@type": "Audience",
+                                        "audienceType": "Hispanohablantes"
+                                    },
+                                    "availableChannel": {
+                                        "@type": "ServiceChannel",
+                                        "name": "Consulta psicológica online",
+                                        "serviceUrl": "https://travesiainternapsicologia.com/",
+                                        "availableLanguage": "es"
+                                    }
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Trastornos de la conducta alimentaria",
+                                    "description": "Tratamiento especializado desde un enfoque integral"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Padecimientos obsesivos y ansiedad",
+                                    "description": "Intervención clínica para TOC y manifestaciones de ansiedad"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Crisis vitales",
+                                    "description": "Acompañamiento en transiciones y momentos de crisis"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Conflictos vinculares",
+                                    "description": "Trabajo sobre dificultades en relaciones interpersonales"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Atención a adolescentes, adultos y parejas",
+                                    "description": "Modalidad presencial y online"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Enfoque clínico psicoanalítico",
+                                    "description": "Análisis del síntoma y proceso terapéutico"
+                                }
+                            }
                         ]
                     }
                 },
